@@ -103,7 +103,7 @@ before_install: |
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
-    chmod 777 /usr/lib/ccache
+    sudo chmod 777 /usr/lib/ccache
     ;;
   osx)
     set -e
