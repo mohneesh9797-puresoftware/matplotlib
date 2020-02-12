@@ -103,6 +103,7 @@ before_install: |
   case "$TRAVIS_OS_NAME" in
   linux)
     export PATH=/usr/lib/ccache:$PATH
+    chmod 777 /usr/lib/ccache
     ;;
   osx)
     set -e
@@ -128,11 +129,10 @@ install:
     ccache -s
     git describe
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
-    sudo apt-get install -y cm-super dvipng ffmpeg gdb gir1.2-gtk-3.0 graphviz inkscape lcov libcairo2 libcairo2-dev libffi-dev libgeos-dev libgirepository1.0-dev lmodern fonts-freefont-otf  texlive-pictures pkg-config qtbase5-dev texlive-fonts-recommended texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-luatex texlive-xetex ttf-wqy-zenhei
     sudo python -mpip install --upgrade pip setuptools wheel
   - |
     # Install dependencies from PyPI.
-    sudo python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
+    python -mpip install --upgrade $PRE -r requirements/testing/travis_all.txt $EXTRAREQS $PINNEDVERS
   - |
     # Install optional dependencies from PyPI.
     # Sphinx is needed to run sphinxext tests
