@@ -5,16 +5,16 @@ dist: xenial
 services:
   - xvfb
 
-branches:
-  except:
-  - /^auto-backport-of-pr-\d*/
-  - /^v\d+\.\d+\.[\dx]+-doc$/
+#branches:
+ # except:
+  #- /^auto-backport-of-pr-\d*/
+  #- /^v\d+\.\d+\.[\dx]+-doc$/
 
-#cache:
- # pip: true
- # directories:
-  #  - $HOME/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
-   # - $HOME/.cache/matplotlib
+cache:
+  pip: true
+  directories:
+    - $HOME/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
+    - $HOME/.cache/matplotlib
 
 addons:
   artifacts:
