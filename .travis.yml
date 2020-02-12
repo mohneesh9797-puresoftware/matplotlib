@@ -126,8 +126,14 @@ before_install: |
 install:
   - |
     # Setup environment.
+    echo "THE PRESENT WORKING DIRECTORY IS : "
+    pwd
     ccache -s
+    echo "THE PRESENT WORKING DIRECTORY IS : "
+    pwd
     git describe
+    echo "THE PRESENT WORKING DIRECTORY IS : "
+    pwd
     # Upgrade pip and setuptools and wheel to get as clean an install as possible.
     python -mpip install --upgrade pip setuptools wheel
   - |
